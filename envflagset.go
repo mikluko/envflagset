@@ -58,7 +58,11 @@ func (ef *EnvFlagSet) flagEnvName(f *flag.Flag) string {
 	if ok {
 		return e
 	}
-	return fmt.Sprintf("%s%s", ef.Prefix, strings.ReplaceAll(strings.ToUpper(f.Name), "-", "_"))
+	e = strings.ToUpper(f.Name)
+	e = strings.ReplaceAll(e, "-", "_")
+	e = strings.ReplaceAll(e, ".", "_")
+	e = fmt.Sprintf("%s%s", ef.Prefix, e)
+	return e
 }
 
 // flagEnvValue looks up environment variable value for a flag

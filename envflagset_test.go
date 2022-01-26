@@ -14,7 +14,7 @@ func TestParse(t *testing.T) {
 	fs := flag.NewFlagSet("testing", flag.PanicOnError)
 
 	addr := fs.String("service-addr", "localhost", "address")
-	port := fs.Int("service-port", 8080, "port")
+	port := fs.Int("service.port", 8080, "port")
 	debug := fs.Bool("debug", false, "debug")
 	verbose := fs.Bool("v", false, "alias for debug")
 
@@ -46,7 +46,7 @@ func TestUsage(t *testing.T) {
 	fs.SetOutput(&buf)
 
 	_ = fs.String("service-addr", "localhost", "address")
-	_ = fs.Int("service-port", 8080, "port")
+	_ = fs.Int("service.port", 8080, "port")
 	_ = fs.Bool("debug", false, "debug")
 	_ = fs.Bool("v", false, "alias for debug")
 
